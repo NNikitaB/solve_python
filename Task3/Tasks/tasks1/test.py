@@ -1,5 +1,5 @@
 
-
+# БД
 technic = [
     ('Ноутбук', 1500, 'Татьяна', '89002001020'),
     ('Смартфон', 500, 'Анна', '89202202325'),
@@ -16,6 +16,7 @@ technic = [
 ]
 
 
+# Поиск пары в массиве пар,возврат -1, если не нашли
 def _search(arr, name, number):
     for count, value in enumerate(arr):
         if value[0] == name and value[1] == number:
@@ -24,6 +25,11 @@ def _search(arr, name, number):
 
 
 def tasks1(db):
+    """
+    Оптимизация хранения в БД
+    :param db: database
+    :return : new_db
+    """
     new_db = []
     for it in db:
         number = _search(new_db, it[2], it[3])
@@ -35,6 +41,11 @@ def tasks1(db):
 
 
 def print_new_db(new_db):
+    """
+    Вывод БД
+    :param new_db:
+    :return:
+    """
     for it in new_db:
         s = '{0} {1}:'.format(it[0], it[1])
         ls = []

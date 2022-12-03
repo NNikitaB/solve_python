@@ -1,3 +1,5 @@
+
+# Список имен файлов
 list_filenames = [
     'filename1',
     'filename1ddhykiukui',
@@ -9,6 +11,7 @@ list_filenames = [
 ]
 
 
+# Удаление дубликатов символов
 def del_duplicate_char(strings):
     arr = []
     for string in strings:
@@ -22,10 +25,16 @@ def del_duplicate_char(strings):
 
 
 def tasks2(ls_filenames):
+    """
+    Дополняет имена файлов '_' до наибольшей длинны
+    и удаляет дубликаты символов
+    :param ls_filenames:
+    :return:new_ls
+    """
     max_len = max(map(len, ls_filenames))
     ls_filenames = del_duplicate_char(ls_filenames)
     new_ls = list(map(lambda st: st+'_'*(max_len-len(st)) if len(st) < max_len else st, ls_filenames) )
-    print(new_ls)
+    return new_ls
 
 
 
