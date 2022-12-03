@@ -1,0 +1,35 @@
+CREATE database tasks4;
+USE tasks4;
+
+CREATE TABLE CUSTOMERS (
+                           code INTEGER NOT NULL PRIMARY KEY,
+                           name TEXT NOT NULL,
+                           code_cities INTEGER NOT NULL
+);
+
+CREATE TABLE CITIES (
+                        code INTEGER NOT NULL PRIMARY KEY,
+                        name TEXT NOT NULL
+);
+
+
+
+INSERT INTO CITIES (code,name) values(1,"Москва");
+INSERT INTO CITIES (code,name) values(2,"Санкт-Петербург");
+INSERT INTO CITIES (code,name) values(3,"Пермь");
+INSERT INTO CITIES (code,name) values(4,"Воорнеж");
+INSERT INTO CITIES (code,name) values(5,"Липецк");
+
+
+INSERT INTO CUSTOMERS (code,name,code_cities) values(1,"Иванов Т.М.",3);
+INSERT INTO CUSTOMERS (code,name,code_cities) values(2,"Пановко И.Т.",2);
+INSERT INTO CUSTOMERS (code,name,code_cities) values(3,"Черненко И.А",3);
+INSERT INTO CUSTOMERS (code,name,code_cities) values(4,"Пановко А.И.",2);
+INSERT INTO CUSTOMERS (code,name,code_cities) values(5,"Иванова А.И.",1);
+
+#3.1
+SELECT * from CUSTOMERS,CITIES;
+#3.2
+SELECT CUSTOMERS.name,CITIES.name FROM CUSTOMERS JOIN CITIES on CUSTOMERS.code_cities = CITIES.code;
+#3.3
+SELECT CITIES.name,CUSTOMERS.name FROM CITIES JOIN CUSTOMERS on CUSTOMERS.code_cities = CITIES.code
